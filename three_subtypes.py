@@ -4,7 +4,7 @@ import pandas as pd
 from sklearn import tree
 from sklearn.ensemble import RandomForestClassifier
 
-mu = [(-100,0),(50,40),(70,-30)]
+mu = [(-300,0),(100,60),(0,-200)]
 sigma = 1
 P_A = [0.35,0.55,0.1]
 P_B = [0.5,0.1,0.4]
@@ -30,7 +30,7 @@ X = pd.DataFrame({'Feature1': Data['Feature1'], 'Feature2': Data['Feature2']})
 Y = Data['label']
 
 # Test set -
-test = np.random.normal((0,0),100,(2000,2))
+test = np.random.normal((0,0),200,(10000,2))
 
 # Classification with decision tree -
 clf = RandomForestClassifier(max_depth=3, min_samples_split=10, random_state=0)
