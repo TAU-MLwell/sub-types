@@ -1,13 +1,19 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+from sklearn.utils import shuffle
 from sklearn import tree
+from sklearn.linear_model import LinearRegression
 from sklearn.ensemble import RandomForestClassifier
+from sklearn import svm
+from sklearn.linear_model import LogisticRegressionCV
 
 mu = [(-300,0),(100,60),(0,-200)]
 sigma = 1
 P_A = [0.35,0.55,0.1]
 P_B = [0.5,0.1,0.4]
+#P_A = [0,1,0]
+#P_B = [0.5,0,0.5]
 N = 10000 # No. of samples in each population
 
 popA_1 = np.random.normal(mu[0], sigma, (int(N*P_A[0]),2))
@@ -24,7 +30,8 @@ popB = np.concatenate((popB_1,popB_2,popB_3))
 labels = np.concatenate((np.ones(N),-1*np.ones(N))) # 1 for popA and -1 for popB
 data = np.concatenate((popA,popB))
 Data = pd.DataFrame({'Feature1': data[:,0], 'Feature2': data[:,1], 'label': labels[:,]})
-Data = Data.apply(np.random.permutation, axis=0)
+Data = shuffle(Data)
+#Data = Data.apply(np.random.permutation, axis=0)
 
 X = pd.DataFrame({'Feature1': Data['Feature1'], 'Feature2': Data['Feature2']})
 Y = Data['label']
@@ -36,10 +43,18 @@ test = np.random.normal((0,0),200,(10000,2))
 clf = RandomForestClassifier(max_depth=3, min_samples_split=10, random_state=0)
 clf.fit(X, Y)
 
+# SVM -
+#clf = svm.SVC()
+#clf.fit(X, Y)
+
+# Logistic regression -
+#clf = LogisticRegressionCV(cv=5, random_state=0).fit(X, Y)
+
+
 #predictions -
 predictions = clf.predict(test)
-unique, counts = np.unique(predictions, return_counts=True)
-print(dict(zip(unique, counts)))
+#unique, counts = np.unique(predictions, return_counts=True)
+#print(dict(zip(unique, counts)))
 
 plt.plot(test[predictions<0,0], test[predictions<0,1], 'o', color='blue')
 plt.plot(test[predictions>0,0], test[predictions>0,1], 'o', color='green')
