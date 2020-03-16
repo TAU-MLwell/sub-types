@@ -5,6 +5,7 @@ from sklearn.utils import shuffle
 from sklearn import tree
 from sklearn.linear_model import LinearRegression
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.preprocessing import normalize
 from sklearn import svm
 from sklearn.linear_model import LogisticRegressionCV
 
@@ -28,30 +29,32 @@ popB = np.concatenate((popB_1,popB_2,popB_3))
 
 # Creating DataFrame of the populations and the labels to shuffle the order -
 labels = np.concatenate((np.ones(N),-1*np.ones(N))) # 1 for popA and -1 for popB
-data = np.concatenate((popA,popB))
-Data = pd.DataFrame({'Feature1': data[:,0], 'Feature2': data[:,1], 'label': labels[:,]})
-Data = shuffle(Data)
+data_only = np.concatenate((popA,popB))
+Data = pd.DataFrame({'Feature1': data_only[:,0], 'Feature2': data_only[:,1], 'label': labels[:,]})
+#Data = shuffle(Data)
 #Data = Data.apply(np.random.permutation, axis=0)
 
 X = pd.DataFrame({'Feature1': Data['Feature1'], 'Feature2': Data['Feature2']})
 Y = Data['label']
 
 # Test set -
-test = np.random.normal((0,0),200,(10000,2))
+test = np.random.normal((0,0),200,(1000,2))
 
 # Classification with decision tree -
-clf = RandomForestClassifier(max_depth=3, min_samples_split=10, random_state=0)
-clf.fit(X, Y)
+#clf = RandomForestClassifier(max_depth=3, min_samples_split=10, random_state=0)
+#clf.fit(X, Y)
 
 # SVM -
-#clf = svm.SVC()
-#clf.fit(X, Y)
+#norm_X = normalize(X)
+clf = svm.SVC(C=50.0, kernel='linear',gamma='auto')
+clf.fit(X,Y)
 
 # Logistic regression -
 #clf = LogisticRegressionCV(cv=5, random_state=0).fit(X, Y)
 
 
 #predictions -
+#norm_test = normalize(test)
 predictions = clf.predict(test)
 #unique, counts = np.unique(predictions, return_counts=True)
 #print(dict(zip(unique, counts)))
