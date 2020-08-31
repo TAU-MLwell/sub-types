@@ -20,7 +20,7 @@ This function uses the other functions written in the code to build the clusteri
 
 ##### Input - 
 1. features - Pandas dataset with all the necessary features
-2. ground_truth - The class of each record in the features dataset, shouls be with the same number of rows 
+2. ground_truth - The class of each record in the features dataset, shouls be with the same number of rows. This algorithm is suitable for binary classification, ie for 2 classes marked as [-1, 1]
 3. alpha - The deviation we allow from 0.5 error
 4. min_size_leaf - The minimum number of records per leaf
 
@@ -30,3 +30,14 @@ This function uses the other functions written in the code to build the clusteri
 3. model_list - Details of the classifier trained at each of the internal nodes, according to the index of the list in which the classifier appears
 4. records_per_leaf - Dictionary in which the keys are the number of the leaf and the values are the original indexes from the database of the patients that belonged to this leaf
 
+### 'get_class_weights' - 
+Calculating the weight of each class in order to perform the reweigh in the classifier
+
+### 'set_SVM_model' - 
+For our model we use SVM. This function defines the classification according to which the clustering tree will be built, can be changed as needed
+
+### 'get_split' - 
+Split to two child nodes
+
+### 'split' - 
+Create child splits for a node or make terminal
