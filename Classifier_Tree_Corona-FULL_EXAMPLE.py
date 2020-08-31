@@ -132,7 +132,7 @@ features_dummies = pd.get_dummies(features[symptoms],dummy_na=False, drop_first=
 min_size_leaf = 2000
 alpha = 0.03  # The deviation we allow from 0.5 error
 
-outcomes = build_tree(features_dummies, ground_truth, alpha, min_size_leaf)
+output = build_tree(features_dummies, ground_truth, alpha, min_size_leaf)
 
 
 ### Plotting the clusters ### 
