@@ -16,8 +16,17 @@ With the outbreak of the Corona epidemic in Israel, the Ministry of Health began
 This is the main code including all the functions necessary for creating the clustering tree. 
 
 #### 'build_tree' - The main function - 
+This function uses the other functions written in the code to build the clustering tree.
 
-This function uses the other functions written in the code to build the clustering tree. 
-###### Input - 
-fl
+##### Input - 
+1. features - Pandas dataset with all the feature to the classifier
+2. ground_truth - The class of each record in the features dataset, shouls be with the same number of rows 
+3. alpha - The deviation we allow from 0.5 error
+4. min_size_leaf - The minimum number of records per leaf
+
+##### Output - 
+1. left_list - Each index represent a node in the clustering tree, the value each index recieves represents the number of it's left child
+2. right_list - Each index represent a node in the clustering tree, the value each index recieves represents the number of it's right child
+3. model_list - Details of the classifier trained at each of the internal nodes, according to the index of the list in which the classifier appears
+4. records_per_leaf - Dictionary in which the keys are the number of the leaf and the values are the original indexes from the database of the patients that belonged to this leaf
 
