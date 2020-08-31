@@ -49,5 +49,7 @@ This is a complete example of the creation of the clustering tree of the corona 
 
 For Example - The tree format obtained at the end is:
 
+  left_list = [1, -1, 3, 5, -1, -1, -1]
+  right_list = [2, -1, 4, 6, -1, -1, -1]
 
-  l;,kdv
+
