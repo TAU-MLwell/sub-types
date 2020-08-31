@@ -15,11 +15,11 @@ With the outbreak of the Corona epidemic in Israel, the Ministry of Health began
 
 This is the main code including all the functions necessary for creating the clustering tree. 
 
-#### 'build_tree' - The main function - 
+### 'build_tree' - The main function - 
 This function uses the other functions written in the code to build the clustering tree.
 
 ##### Input - 
-1. features - Pandas dataset with all the feature to the classifier
+1. features - Pandas dataset with all the necessary features
 2. ground_truth - The class of each record in the features dataset, shouls be with the same number of rows 
 3. alpha - The deviation we allow from 0.5 error
 4. min_size_leaf - The minimum number of records per leaf
