@@ -10,3 +10,14 @@ In General, the algorithm builds a clustering tree assuming that the clusters ar
 ## The Dataset - Coronavirus
 
 With the outbreak of the Corona epidemic in Israel, the Ministry of Health began publishing a database that includes characteristics of people who undergo Corona tests. The dataset used for this project is available as CSV file called 'corona_dataset.xlsx'. In addition, pre-processing of the data before using the algorithm is necessary. More information and the various steps are available in the file 'Preprocessing_Corona.py'. 
+
+## 'Classifier_Tree_Corona.py' 
+
+This is the main code including all the functions necessary for creating the clustering tree. 
+
+#### 'build_tree' - The main function - 
+
+This function uses the other functions written in the code to build the clustering tree. 
+###### Input - 
+fl
+
