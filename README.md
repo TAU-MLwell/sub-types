@@ -25,10 +25,11 @@ This function uses the other functions written in the code to build the clusteri
 4. min_size_leaf - The minimum number of records per leaf
 
 ##### Output - 
-1. left_list - Each index represent a node in the clustering tree, the value each index recieves represents the number of it's left child
-2. right_list - Each index represent a node in the clustering tree, the value each index recieves represents the number of it's right child
+1. left_list - Each index represent a node in the clustering tree, the value each index recieves represents the number of it's left child. In the case its a leaf the corresponding value will be -1
+2. right_list - Each index represent a node in the clustering tree, the value each index recieves represents the number of it's right child. In the case its a leaf the corresponding value will be -1
 3. model_list - Details of the classifier trained at each of the internal nodes, according to the index of the list in which the classifier appears
 4. records_per_leaf - Dictionary in which the keys are the number of the leaf and the values are the original indexes from the database of the patients that belonged to this leaf
+
 
 ### 'get_class_weights' - 
 Calculating the weight of each class in order to perform the reweigh in the classifier
