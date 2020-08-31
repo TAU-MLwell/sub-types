@@ -41,3 +41,13 @@ Split to two child nodes
 
 ### 'split' - 
 Create child splits for a node or make terminal
+
+
+## 'Classifier_Tree_Corona-FULL_EXAMPLE.py' 
+
+This is a complete example of the creation of the clustering tree of the corona data set. This code includes pre-processing of the data as well as visual display after division into clusters after using t-SNE for dimension reduction. 
+
+For Example - The tree format obtained at the end is:
+
+
+  l;,kdv
