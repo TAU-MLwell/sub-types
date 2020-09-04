@@ -9,7 +9,10 @@ In General, the algorithm builds a clustering tree assuming that the clusters ar
 
 ## The Dataset - Coronavirus
 
-With the outbreak of the Corona epidemic in Israel, the Ministry of Health began publishing a database that includes characteristics of people who undergo Corona tests. The dataset used for this project is available as CSV file called 'corona_dataset.xlsx'. In addition, pre-processing of the data before using the algorithm is necessary. More information and the various steps are available in the file 'Preprocessing_Corona.py'. 
+With the outbreak of the Corona epidemic in Israel, the Ministry of Health began publishing a database that includes characteristics of people who undergo Corona tests. The dataset used for this project is available as CSV at the attached link. In addition, pre-processing of the data before using the algorithm is necessary. More information and the various steps are available in the file 'Preprocessing_Corona.py'. 
+
+Data collection and sharing was supported by the Israeli Ministry of Health. You can learn more about the database at : https://data.gov.il/dataset/covid-19/resource/d337959a-020a-4ed3-84f7-fca182292308
+The database is updated twice a week, so it is important to emphasize that the data used for this project includes the records between March 3 and April 11, 2020. For our work, only the positive subjects are taken, i.e. only those infected with Corona, in total 9937 patients.
 
 ## 'Classifier_Tree_Corona.py' 
 
